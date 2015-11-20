@@ -1,0 +1,43 @@
+{
+  "name": "browscap-js-cache",
+  "description": "the cache class for browscap.js",
+  "keywords": [
+    "browscap"
+  ],
+  "author": "Thomas Müller",
+  "contributors": [
+    "Thomas Müller (http://github.com/mimmi20)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mimmi20/browscap-js-cache.git"
+  },
+  "bugs": {
+    "url": "http://github.com/mimmi20/browscap-js-cache/issues"
+  },
+  "bin": {
+    "browscap-cache": "./index.js"
+  },
+  "main": "index",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/mimmi20/browscap-js/README.md"
+    }
+  ],
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "scripts": {
+    "test": "mocha -u tdd ./test/*.js"
+  },
+  "homepage": "https://github.com/mimmi20/browscap-js",
+  "version": "1.0.0",
+  "directories": {
+    "test": "test"
+  },
+  "license": "MIT"
+}
