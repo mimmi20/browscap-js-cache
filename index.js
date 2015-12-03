@@ -81,9 +81,16 @@ module.exports = function BrowscapCache (datafolder) {
 
         var file = this.getPath(cacheId);
 
-	if(!fs.statSync(file).isFile()){
-		return new CacheClass(null, false);
-	}
+        try {
+            fs.statSync(file);
+        } catch (e) {
+            if (e.code === 'ENOENT') {
+                // cache file does not exist
+                return new CacheClass(null, false);
+            }
+
+            throw e;
+        }
 
         var data   = fs.readFileSync(file);
         var object = JSON.parse(data);
@@ -119,10 +126,6 @@ module.exports = function BrowscapCache (datafolder) {
         }
 
         var file = this.getPath(cacheId);
-
-	if(!fs.statSync(file).isFile()){
-                return new CacheClass(null, false);
-        }
 
         // Save and return
         var json = JSON.stringify(data);
