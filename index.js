@@ -112,7 +112,7 @@ module.exports = function BrowscapCache (datafolder) {
      * @param cacheId
      * @param content
      * @param withVersion
-     * @returns {*}
+     * @returns {boolean}
      */
     this.setItem = function setItem (cacheId, content, withVersion) {
         var data = {content: content};
@@ -130,7 +130,13 @@ module.exports = function BrowscapCache (datafolder) {
         // Save and return
         var json = JSON.stringify(data);
 
-        return fs.writeFileSync(file, json);
+        try {
+            fs.writeFileSync(file, json);
+        } catch (e) {
+            return false;
+        }
+
+        return true;
     };
 
     /**
@@ -153,6 +159,6 @@ module.exports = function BrowscapCache (datafolder) {
      * @returns {string}
      */
     this.getPath = function getPath (keyname) {
-        return this.folder + '/' + keyname + '.json'
+        return this.folder + '/' + keyname + '.json';
     };
 };
