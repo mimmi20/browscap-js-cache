@@ -29,7 +29,7 @@
     }
   ],
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "^3.0.0"
   },
   "scripts": {
     "test": "mocha -u tdd ./test/*.js"
