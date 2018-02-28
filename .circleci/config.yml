@@ -11,7 +11,7 @@ jobs:
           keys:
             - composer-v1-{{ checksum "package.json" }}
             - composer-v1-
-      - run: composer update --optimize-autoloader --prefer-dist --prefer-stable --no-progress --no-interaction --no-suggest -vv
+      - run: npm update
       - save_cache:
           key: composer-v1-{{ checksum "package.json" }}
           paths:
