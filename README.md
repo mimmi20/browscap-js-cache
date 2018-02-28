@@ -19,4 +19,6 @@ There is a test.js file which demonstrates how to use browscap-js-cache.
 
 To run:
 
+```node
 $ npm test
+```
