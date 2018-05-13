@@ -74,7 +74,7 @@ class BrowscapCache {
    * @param {boolean} withVersion
    * @return {CacheClass}
    */
-  getItem(cacheId, withVersion) {
+  getItem(cacheId, withVersion = true) {
     if (typeof withVersion === 'undefined') {
       withVersion = true;
     }
@@ -118,7 +118,7 @@ class BrowscapCache {
    * @param {boolean} withVersion
    * @return {boolean}
    */
-  setItem(cacheId, content, withVersion) {
+  setItem(cacheId, content, withVersion = true) {
     const data = {content: content};
 
     if (typeof withVersion === 'undefined') {
@@ -150,7 +150,11 @@ class BrowscapCache {
    * @param {boolean} withVersion
    * @return {boolean}
    */
-  hasItem(cacheId, withVersion) {
+  hasItem(cacheId, withVersion = true) {
+    if (typeof withVersion === 'undefined') {
+      withVersion = true;
+    }
+
     const version = this.getItem(cacheId, withVersion);
 
     return version.content !== null && version.success;

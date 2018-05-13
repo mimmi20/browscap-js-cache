@@ -20,7 +20,7 @@
   },
   "main": "src/index.js",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4.0.0"
   },
   "licenses": [
     {
@@ -57,10 +57,10 @@
   "nyc": {
     "check-coverage": true,
     "per-file": true,
-    "lines": 1,
-    "statements": 1,
-    "functions": 1,
-    "branches": 1,
+    "lines": 0,
+    "statements": 0,
+    "functions": 0,
+    "branches": 0,
     "cache": false,
     "all": true
   }

@@ -43,7 +43,7 @@ class CacheClass {
    * @param {*} content
    * @param {boolean} success
    */
-  constructor(content, success) {
+  constructor(content, success = false) {
     this.content = content;
     this.success = success;
   }
