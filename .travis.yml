@@ -3,6 +3,7 @@ sudo: false
 dist: trusty
 
 node_js:
+  - "10.1"
   - "10.0"
   - "9.11"
   - "9.10"
