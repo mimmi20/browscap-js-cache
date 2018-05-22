@@ -26,7 +26,7 @@
  * @link       https://github.com/mimmi20/browscap-js/
  */
 
-"use strict";
+'use strict';
 
 /**
  * generic cache class
@@ -38,7 +38,15 @@
  * @license    http://www.opensource.org/licenses/MIT MIT License
  * @link       https://github.com/mimmi20/browscap-js/
  */
-module.exports = function CacheClass (content, success) {
+class CacheClass {
+  /**
+   * @param {*} content
+   * @param {boolean} success
+   */
+  constructor(content, success = false) {
     this.content = content;
     this.success = success;
-};
+  }
+}
+
+module.exports = CacheClass;
