@@ -37,7 +37,7 @@
     "test-and-coverage": "nyc --clean --reporter=clover mocha -u tdd --full-trace ./test/*.js"
   },
   "homepage": "https://github.com/mimmi20/browscap-js",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "directories": {
     "test": "test"
   },
