@@ -30,7 +30,7 @@
   ],
   "devDependencies": {
     "mocha": "^6.0.2",
-    "nyc": "^11.7.3"
+    "nyc": "^13.3.0"
   },
   "scripts": {
     "test": "nyc --clean --reporter=text mocha -u tdd --full-trace ./test/*.js",
