@@ -41,10 +41,12 @@ before_install:
 script: "npm test"
 
 jobs:
-  fast_finish: true
   include:
     - stage: test with coverage
       node_js: "12.0"
       script: npm run test-and-coverage
       after_success:
         - bash <(curl -s https://codecov.io/bash) -f coverage/clover.xml
+
+notifications:
+  email: false
