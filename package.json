@@ -20,7 +20,7 @@
   },
   "main": "src/index.js",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=10.0.0"
   },
   "licenses": [
     {
@@ -29,8 +29,8 @@
     }
   ],
   "devDependencies": {
-    "mocha": "^6.0.2",
-    "nyc": "^13.3.0"
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1"
   },
   "scripts": {
     "test": "nyc --clean --reporter=text mocha -u tdd --full-trace ./test/*.js",
