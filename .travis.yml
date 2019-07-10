@@ -3,7 +3,7 @@ sudo: false
 dist: trusty
 
 node_js:
-  - "13.0"
+  #- "13.0"
   - "12.6"
   - "12.5"
   - "12.4"
