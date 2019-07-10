@@ -119,7 +119,7 @@ class BrowscapCache {
    * @return {boolean}
    */
   setItem(cacheId, content, withVersion = true) {
-    const data = {content: content};
+    const data = { content: content };
 
     if (typeof withVersion === 'undefined') {
       withVersion = true;
