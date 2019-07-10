@@ -33,3 +33,5 @@ node_modules/
 coverage/
 .nyc_output/
 clover.*
+test/test-cache/browscap.version.x.json
+test/test-cache/browscap.version.x.6009.json

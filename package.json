@@ -30,11 +30,14 @@
   ],
   "devDependencies": {
     "mocha": "^6.1.4",
-    "nyc": "^14.1.1"
+    "nyc": "^14.1.1",
+    "prettier": "1.18.2"
   },
   "scripts": {
     "test": "nyc --clean --reporter=text mocha -u tdd --full-trace ./test/*.js",
-    "test-and-coverage": "nyc --clean --reporter=clover mocha -u tdd --full-trace ./test/*.js"
+    "test-and-coverage": "nyc --clean --reporter=clover mocha -u tdd --full-trace ./test/*.js",
+    "prettier-check": "prettier -c \"**/*.js\"",
+    "prettier-fix": "prettier --write \"**/*.js\""
   },
   "homepage": "https://github.com/mimmi20/browscap-js",
   "version": "2.0.1",

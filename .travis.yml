@@ -32,13 +32,17 @@ node_js:
 os: linux
 
 stages:
+  - check coding style
   - test
   - test with coverage
 
 before_install:
   - stty cols 130
 
-script: "npm test"
+install:
+  - travis_retry npm install
+
+script: npm test
 
 jobs:
   include:
@@ -47,6 +51,10 @@ jobs:
       script: npm run test-and-coverage
       after_success:
         - bash <(curl -s https://codecov.io/bash) -f coverage/clover.xml
+
+    - stage: check coding style
+      node_js: "12.0"
+      script: prettier -c "**/*.js"
 
 notifications:
   email: false
