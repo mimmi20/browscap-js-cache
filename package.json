@@ -31,7 +31,7 @@
   "devDependencies": {
     "mocha": "^6.2.0",
     "nyc": "^14.1.1",
-    "prettier": "1.19.0"
+    "prettier": "1.19.1"
   },
   "scripts": {
     "test": "nyc --clean --reporter=text mocha -u tdd --full-trace ./test/*.js",
