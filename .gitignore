@@ -35,3 +35,5 @@ coverage/
 clover.*
 test/test-cache/browscap.version.x.json
 test/test-cache/browscap.version.x.6009.json
+package-lock.json
+yarn.lock
