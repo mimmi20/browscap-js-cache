@@ -34,7 +34,7 @@
     "prettier-fix": "prettier --write \"**/*.js\""
   },
   "homepage": "https://github.com/mimmi20/browscap-js-cache",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "directories": {
     "test": "test"
   },
