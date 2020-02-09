@@ -1,16 +1,16 @@
-'use strict';
-
-const CacheClass = require('./cache-class');
-const fs = require('fs');
+import CacheClass from './cache-class';
 
 /**
  * a cache proxy to be able to use the cache adapters provided by the WurflCache package
  */
-class BrowscapCache {
+export default class BrowscapCache {
+  private folder: string;
+  private version: string | number | boolean | object | null;
+
   /**
    * @param {string} datafolder
    */
-  constructor(datafolder) {
+  constructor(datafolder: string) {
     this.version = null;
     this.folder = datafolder;
   }
@@ -20,11 +20,15 @@ class BrowscapCache {
    *
    * @return {string}
    */
-  getVersion() {
+  public getVersion(): string | number | boolean | object | null | string[] {
     if (this.version === null) {
-      const version = this.getItem('browscap.version', false);
+      let version = this.getItem('browscap.version', false);
 
-      if (version.content !== null && version.success) {
+      if (
+        version.success &&
+        version.content !== null &&
+        typeof version.content === 'string'
+      ) {
         this.version = version.content;
       }
     }
@@ -39,17 +43,14 @@ class BrowscapCache {
    * @param {boolean} withVersion
    * @return {CacheClass}
    */
-  getItem(cacheId, withVersion = true) {
-    if (typeof withVersion === 'undefined') {
-      withVersion = true;
-    }
-
+  public getItem(cacheId: string, withVersion = true): CacheClass {
     if (withVersion) {
       cacheId += '.' + this.getVersion();
     }
 
-    const file = this.getPath(cacheId);
-    let data;
+    let file = this.getPath(cacheId),
+      fs = require('fs'),
+      data;
 
     try {
       data = fs.readFileSync(file);
@@ -62,7 +63,7 @@ class BrowscapCache {
       throw e;
     }
 
-    const object = JSON.parse(data);
+    let object = JSON.parse(data);
 
     if (typeof object === 'undefined') {
       return new CacheClass(null, false);
@@ -83,21 +84,20 @@ class BrowscapCache {
    * @param {boolean} withVersion
    * @return {boolean}
    */
-  setItem(cacheId, content, withVersion = true) {
-    const data = { content: content };
-
-    if (typeof withVersion === 'undefined') {
-      withVersion = true;
-    }
+  public setItem(
+    cacheId: string,
+    content: string | number | boolean | object | null,
+    withVersion = true
+  ): boolean {
+    let data = { content: content };
 
     if (withVersion) {
       cacheId += '.' + this.getVersion();
     }
 
-    const file = this.getPath(cacheId);
-
-    // Save and return
-    const json = JSON.stringify(data);
+    let file = this.getPath(cacheId),
+      json = JSON.stringify(data),
+      fs = require('fs');
 
     try {
       fs.writeFileSync(file, json);
@@ -115,12 +115,8 @@ class BrowscapCache {
    * @param {boolean} withVersion
    * @return {boolean}
    */
-  hasItem(cacheId, withVersion = true) {
-    if (typeof withVersion === 'undefined') {
-      withVersion = true;
-    }
-
-    const version = this.getItem(cacheId, withVersion);
+  public hasItem(cacheId: string, withVersion = true): boolean {
+    let version = this.getItem(cacheId, withVersion);
 
     return version.content !== null && version.success;
   }
@@ -131,9 +127,7 @@ class BrowscapCache {
    * @param {string} keyname
    * @return {string}
    */
-  getPath(keyname) {
+  getPath(keyname: string): string {
     return this.folder + '/' + keyname + '.json';
   }
 }
-
-module.exports = BrowscapCache;

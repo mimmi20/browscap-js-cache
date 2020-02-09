@@ -12,7 +12,7 @@ Alternatively you can clone the git repository
 
 # Examples
 
-There is a test.js file which demonstrates how to use browscap-js-cache.
+There is a test.ts file which demonstrates how to use browscap-js-cache.
 
 To run:
 

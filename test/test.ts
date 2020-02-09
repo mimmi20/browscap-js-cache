@@ -1,5 +1,5 @@
-const assert = require('assert'),
-  BrowscapCache = require('../src/index.js');
+const assert = require('assert');
+import BrowscapCache from '../src/browscap-cache';
 
 suite('checking cache version', function() {
   test('cache version is 6009', function() {
